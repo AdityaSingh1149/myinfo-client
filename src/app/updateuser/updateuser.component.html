@@ -1,0 +1,27 @@
+<p>updateuser works!</p>
+<div [hidden]="submitted" style="width: 300px;">
+  <mat-card>
+  <form class="example-form"  (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="ID" required [(ngModel)]='user.id' [ngModelOptions]="{standalone: true}" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="First Name" required [(ngModel)]='user.firstName' [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Last Name" required [(ngModel)]='user.lastName' [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" required [(ngModel)]='user.email' [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="accent">Update</button>
+  </form>
+</mat-card>
+  </div>
+  <div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+    <button class="btn btn-primary" (click)="newUser()">Add</button>
+    <button class="btn btn-primary"  (click)="getUser()">View</button>
+  </div>
+
