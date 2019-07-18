@@ -11,6 +11,7 @@ export class UserService {
  addUrl="http://localhost:8181/addUser";
  deleteUrl="http://localhost:8181/deleteUser";
  updateUrl="http://localhost:8181/updateUser";
+ getUserIDUrl="http://localhost:8181/getUserID";
  private user:User;
   constructor(private http:HttpClient) { }
  
@@ -24,6 +25,7 @@ export class UserService {
   }
   deleteUser(id: number){
     console.log(id);
+    console.log(`${this.deleteUrl}/${id}`);
     return this.http.delete(`${this.deleteUrl}/${id}`,{responseType:'text'});
   }
   updateUser(user: User){
@@ -31,11 +33,10 @@ export class UserService {
     return this.http.put(this.updateUrl,user);
   }
 
-  setter(user:User){
-    this.user=user;
-  }
-  getter(){
-    return this.user;
+  getUserID(id: number){
+    console.log(id);
+    console.log(`${this.getUserIDUrl}/${id}`);
+    return this.http.get(`${this.getUserIDUrl}/${id}`);
   }
 }
 

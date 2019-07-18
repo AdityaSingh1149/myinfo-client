@@ -23,15 +23,16 @@ export class UserComponent implements OnInit {
   }
   
   deleteUser(id:number){
-    // this.getUser();
+    this.getUser();
     return this.userService.deleteUser(id).subscribe(
       data=>{this.user=this.user.filter(u=>  u)});
       
       //console.log(data),error=>console.log(error));
   }
-  updateUser(user:User){
-    this.userService.setter(user);
-    this.router.navigate(['Updateuser']);
-    
+  updateUser(id:number){
+    this.router.navigate(['Updateuser',id]);
+
+      // return this.userService.getUserID(id).subscribe(
+      //   data=>{this.user=this.user.filter(u=>  u)});
   }
 }

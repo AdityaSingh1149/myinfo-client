@@ -16,7 +16,7 @@
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td> {{ user.lastName }} </td>
-        <td> <button (click)="updateUser()" class="btn btn-outline-primary">Update</button> </td>
+        <td> <button (click)="updateUser(user.id)" class="btn btn-outline-primary">Update</button> </td>
         <td> <button (click)="deleteUser(user.id)" class="btn btn-primary"> Delete</button> </td>
         <td></td>
       </tr>
