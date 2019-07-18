@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/User.model';
 import { UserService } from '../service/user.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-user',
@@ -10,7 +12,7 @@ import { UserService } from '../service/user.service';
 export class AddUserComponent implements OnInit {
 user:User=new User();
 submitted = false;
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService,private router:Router) { }
 
   ngOnInit() {
   }
@@ -26,5 +28,9 @@ this.userService.addUser(this.user).subscribe(data=>console.log(data),error=>con
 onSubmit(){
   this.submitted = true;
   this.save();
+}
+ViewUser(){
+  this.router.navigate(['Viewuser']);
+  
 }
 }
