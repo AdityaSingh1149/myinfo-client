@@ -12,13 +12,17 @@ export class UserService {
  deleteUrl="http://localhost:8181/deleteUser";
  updateUrl="http://localhost:8181/updateUser";
  getUserIDUrl="http://localhost:8181/getUserID";
- private user:User;
+ user:User=new User();
   constructor(private http:HttpClient) { }
  
  
   Viewuser(){
     return this.http.get<User[]>(this.getUrl);
   }
+  // RELOAD(){
+  //   return this.http.get<User[]>(this.getUrl)
+  //   .toPromise().then(res => this.user = res as User[]);
+  // }
   addUser(user : User){
     console.log(user);
     return this.http.post(this.addUrl,user);
@@ -37,6 +41,14 @@ export class UserService {
     console.log(id);
     console.log(`${this.getUserIDUrl}/${id}`);
     return this.http.get(`${this.getUserIDUrl}/${id}`);
+  }
+  setter(user:User)
+  {
+    this.user=user;
+  }
+  getter()
+  {
+    return this.user;
   }
 }
 

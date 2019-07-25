@@ -15,19 +15,14 @@ user:User;
 
   ngOnInit() {
     this.user = new User();
-
-    this.id = this.route.snapshot.params['id'];
-    
-    this.userService.getUserID(this.id);
-      // .subscribe(data => {
-      //   console.log(data)
-      //   this.user = data;
-      // }, error => console.log(error));
+    console.log(this.userService.getter().id);
+    console.log(this.userService.getter());
+    this.userService.getter();
   }
 
 
   save(){
-this.userService.addUser(this.user).subscribe(data=>console.log(data),error=>console.log(error));
+this.userService.updateUser(this.user).subscribe(data=>console.log(data),error=>console.log(error));
     }
     
     onSubmit(){
